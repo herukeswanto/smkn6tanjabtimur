@@ -22,15 +22,18 @@
 </head>
 <body class="font-sans bg-gray-100">
 
-  <!-- Top Bar (Hitam dengan teks berjalan) -->
+  <!-- Top Bar (Hitam dengan teks berjalan & tanggal) -->
   <div class="bg-black text-white text-xs md:text-sm">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4 py-1 space-y-1 md:space-y-0">
-      <!-- Tanggal -->
+      
+      <!-- Tanggal Otomatis -->
       <div id="tanggal" class="font-semibold"></div>
 
       <!-- Running text -->
       <div class="overflow-hidden w-full md:w-auto">
-        <span class="animate-marquee">Merupakan SMK Pusat Keunggulan | Kompetensi > Akuntansi > DKV > TSM > AKUNTANSI ></span>
+        <span class="animate-marquee">
+          Merupakan SMK Pusat Keunggulan | Kompetensi > Akuntansi > DKV > TSM > AKUNTANSI >
+        </span>
       </div>
 
       <!-- Search (hanya desktop) -->
@@ -43,12 +46,12 @@
   </div>
 
   <!-- Header Utama -->
-  <header class="bg-sky-500 text-white shadow-md">
+  <header class="bg-sky-500 text-white shadow-md relative z-40">
     <div class="container mx-auto flex items-center justify-between px-4 py-3">
       
       <!-- Logo & Nama -->
       <div class="flex items-center space-x-3">
-        <img src="logo_smk6.png" alt="Logo Sekolah" class="h-12 md:h-14">
+        <img src="logosmk.png" alt="Logo Sekolah" class="h-12 md:h-20">
         <div>
           <h1 class="text-base md:text-lg font-bold leading-tight">SMK NEGERI 6</h1>
           <h2 class="text-sm md:text-base font-semibold">TANJUNG JABUNG TIMUR</h2>
@@ -66,16 +69,19 @@
       </nav>
 
       <!-- Tombol Hamburger (mobile) -->
-      <button id="menu-btn" class="md:hidden text-2xl focus:outline-none">☰</button>
+      <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">☰</button>
     </div>
 
     <!-- Menu Mobile -->
-    <nav id="mobileMenu" class="hidden flex-col space-y-4 bg-sky-600 text-white p-4 md:hidden">
-      <a href="#" class="hover:text-yellow-300">Beranda</a>
-      <a href="#" class="hover:text-yellow-300">Profil</a>
-      <a href="#" class="hover:text-yellow-300">Aplikasi</a>
-      <a href="#" class="hover:text-yellow-300">Berita</a>
-      <a href="#" class="hover:text-yellow-300">Artikel</a>
+    <nav id="mobileMenu" 
+      class="absolute top-[100px] left-0 w-full max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-sky-600 text-white md:hidden shadow-lg z-30 rounded-b-lg">
+      <div class="flex flex-col space-y-4 p-4">
+        <a href="#" class="block hover:text-yellow-300 border-b border-sky-400 pb-2">Beranda</a>
+        <a href="#" class="block hover:text-yellow-300 border-b border-sky-400 pb-2">Profil</a>
+        <a href="#" class="block hover:text-yellow-300 border-b border-sky-400 pb-2">Aplikasi</a>
+        <a href="#" class="block hover:text-yellow-300 border-b border-sky-400 pb-2">Berita</a>
+        <a href="#" class="block hover:text-yellow-300">Artikel</a>
+      </div>
     </nav>
   </header>
 
@@ -98,16 +104,24 @@
     <div class="swiper-button-prev"></div>
   </div>
 
-  <!-- Script untuk tanggal otomatis -->
+  <!-- Script untuk tanggal otomatis & toggle menu -->
   <script>
-    const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+    // Tanggal otomatis
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('tanggal').textContent = new Date().toLocaleDateString('id-ID', options);
 
     // Toggle menu mobile
-    const btnMenu = document.getElementById("menu-btn"); 
+    const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobileMenu");
-    btnMenu.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+
+    menuBtn.addEventListener("click", () => {
+      if (mobileMenu.classList.contains("max-h-0")) {
+        mobileMenu.classList.remove("max-h-0");
+        mobileMenu.classList.add("max-h-[500px]");
+      } else {
+        mobileMenu.classList.remove("max-h-[500px]");
+        mobileMenu.classList.add("max-h-0");
+      }
     });
   </script>
 
