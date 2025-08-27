@@ -1,54 +1,36 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SMKN 6 Tanjung Jabung Timur</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
   <style>
-    /* Running text */
-    @keyframes marquee {
-      0%   { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    .animate-marquee {
-      display: inline-block;
-      white-space: nowrap;
-      animation: marquee 15s linear infinite;
-    }
+    @keyframes marquee { 0% {transform: translateX(100%);} 100% {transform: translateX(-100%);} }
+    .animate-marquee{ display:inline-block; white-space:nowrap; animation:marquee 15s linear infinite;}
   </style>
 </head>
 <body class="font-sans bg-gray-100">
 
-  <!-- Top Bar (Hitam dengan teks berjalan & tanggal) -->
-  <div class="bg-black text-white text-xs md:text-sm">
+  <!-- Top Bar -->
+  <div id="topbar" class="bg-black text-white text-xs md:text-sm transition-all duration-500">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4 py-1 space-y-1 md:space-y-0">
-      
-      <!-- Tanggal Otomatis -->
       <div id="tanggal" class="font-semibold"></div>
-
-      <!-- Running text -->
       <div class="overflow-hidden w-full md:w-auto">
-        <span class="animate-marquee">
-          Merupakan SMK Pusat Keunggulan | Kompetensi > Akuntansi > DKV > TSM > AKUNTANSI >
-        </span>
+        <span class="animate-marquee">Merupakan SMK Pusat Keunggulan | Kompetensi > Akuntansi > DKV > TSM > AKUNTANSI ></span>
       </div>
-
-      <!-- Search (hanya desktop) -->
       <div class="hidden md:flex items-center">
         <input type="text" placeholder="Cari sesuatu"
-          class="px-2 py-1 rounded-l bg-gray-700 text-white placeholder-gray-400 focus:outline-none">
+               class="px-2 py-1 rounded-l bg-gray-700 text-white placeholder-gray-400 focus:outline-none">
         <button class="bg-gray-600 px-3 py-1 rounded-r">🔍</button>
       </div>
     </div>
   </div>
 
-  <!-- Header Utama -->
+  <!-- Header -->
   <header class="bg-sky-500 text-white shadow-md relative z-40">
     <div class="container mx-auto flex items-center justify-between px-4 py-3">
-      
       <!-- Logo & Nama -->
       <div class="flex items-center space-x-3">
         <img src="logosmk.png" alt="Logo Sekolah" class="h-12 md:h-20">
@@ -59,82 +41,176 @@
         </div>
       </div>
 
-      <!-- Menu Desktop -->
+      <!-- NAV DESKTOP (dengan dropdown stabil) -->
       <nav class="hidden md:flex space-x-6 text-sm md:text-base font-medium">
         <a href="#" class="hover:text-yellow-300 transition">Beranda</a>
-        <a href="#" class="hover:text-yellow-300 transition">Profil</a>
-        <a href="#" class="hover:text-yellow-300 transition">Aplikasi</a>
-        <a href="#" class="hover:text-yellow-300 transition">Berita</a>
-        <a href="#" class="hover:text-yellow-300 transition">Artikel</a>
+
+        <!-- Profil -->
+        <div class="relative group">
+          <button class="hover:text-yellow-300 transition">Profil ▾</button>
+          <!-- wrapper punya pt-2 agar tidak ada 'gap' -->
+          <div class="absolute left-0 top-full pt-2">
+            <div class="bg-white text-black shadow-lg rounded w-56 z-50
+                        opacity-0 invisible translate-y-1
+                        group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                        transition">
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Jurusan</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Guru dan Pegawai</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aplikasi -->
+        <div class="relative group">
+          <button class="hover:text-yellow-300 transition">Aplikasi ▾</button>
+          <div class="absolute left-0 top-full pt-2">
+            <div class="bg-white text-black shadow-lg rounded w-56 z-50
+                        opacity-0 invisible translate-y-1
+                        group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                        transition">
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">E-Learning</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Perpustakaan</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Absensi</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Berita -->
+        <div class="relative group">
+          <button class="hover:text-yellow-300 transition">Berita ▾</button>
+          <div class="absolute left-0 top-full pt-2">
+            <div class="bg-white text-black shadow-lg rounded w-56 z-50
+                        opacity-0 invisible translate-y-1
+                        group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                        transition">
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Berita Sekolah</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Pengumuman</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Artikel -->
+        <div class="relative group">
+          <button class="hover:text-yellow-300 transition">Artikel ▾</button>
+          <div class="absolute left-0 top-full pt-2">
+            <div class="bg-white text-black shadow-lg rounded w-56 z-50
+                        opacity-0 invisible translate-y-1
+                        group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                        transition">
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Artikel Umum</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Artikel Siswa</a>
+            </div>
+          </div>
+        </div>
       </nav>
 
-      <!-- Tombol Hamburger (mobile) -->
+      <!-- Hamburger (mobile) -->
       <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">☰</button>
     </div>
 
-    <!-- Menu Mobile -->
-    <nav id="mobileMenu" 
-      class="absolute top-[100px] left-0 w-full max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-sky-600 text-white md:hidden shadow-lg z-30 rounded-b-lg">
-      <div class="flex flex-col space-y-4 p-4">
-        <a href="#" class="block hover:text-yellow-300 border-b border-sky-400 pb-2">Beranda</a>
-        <a href="#" class="block hover:text-yellow-300 border-b border-sky-400 pb-2">Profil</a>
-        <a href="#" class="block hover:text-yellow-300 border-b border-sky-400 pb-2">Aplikasi</a>
-        <a href="#" class="block hover:text-yellow-300 border-b border-sky-400 pb-2">Berita</a>
-        <a href="#" class="block hover:text-yellow-300">Artikel</a>
+    <!-- NAV MOBILE (dengan sub-menu +/−) -->
+    <nav id="mobileMenu"
+         class="absolute top-[100px] left-0 w-full max-h-0 overflow-hidden transition-all duration-500 ease-in-out
+                bg-gray-800 text-white md:hidden shadow-lg z-30 rounded-b-lg">
+      <div class="flex flex-col space-y-2 p-4 font-semibold">
+        <a href="#" class="py-2 hover:text-yellow-300">Beranda</a>
+
+        <!-- Profil -->
+        <div>
+          <button class="w-full flex justify-between items-center py-2 hover:text-yellow-300 submenu-toggle">
+            Profil <span class="icon">+</span>
+          </button>
+          <div class="ml-4 max-h-0 overflow-hidden transition-all duration-500 submenu flex flex-col space-y-2">
+            <a href="#" class="py-1 hover:text-yellow-300">Jurusan</a>
+            <a href="#" class="py-1 hover:text-yellow-300">Guru dan Pegawai</a>
+          </div>
+        </div>
+
+        <!-- Aplikasi -->
+        <div>
+          <button class="w-full flex justify-between items-center py-2 hover:text-yellow-300 submenu-toggle">
+            Aplikasi <span class="icon">+</span>
+          </button>
+          <div class="ml-4 max-h-0 overflow-hidden transition-all duration-500 submenu flex flex-col space-y-2">
+            <a href="#" class="py-1 hover:text-yellow-300">E-Learning</a>
+            <a href="#" class="py-1 hover:text-yellow-300">Perpustakaan</a>
+          </div>
+        </div>
+
+        <!-- Berita -->
+        <div>
+          <button class="w-full flex justify-between items-center py-2 hover:text-yellow-300 submenu-toggle">
+            Berita <span class="icon">+</span>
+          </button>
+          <div class="ml-4 max-h-0 overflow-hidden transition-all duration-500 submenu flex flex-col space-y-2">
+            <a href="#" class="py-1 hover:text-yellow-300">Berita Sekolah</a>
+            <a href="#" class="py-1 hover:text-yellow-300">Pengumuman</a>
+          </div>
+        </div>
+
+        <!-- Artikel -->
+        <div>
+          <button class="w-full flex justify-between items-center py-2 hover:text-yellow-300 submenu-toggle">
+            Artikel <span class="icon">+</span>
+          </button>
+          <div class="ml-4 max-h-0 overflow-hidden transition-all duration-500 submenu flex flex-col space-y-2">
+            <a href="#" class="py-1 hover:text-yellow-300">Artikel Umum</a>
+            <a href="#" class="py-1 hover:text-yellow-300">Artikel Siswa</a>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
 
-  <!-- Slider Gambar -->
+  <!-- Slider -->
   <div class="swiper mySwiper mt-2">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="MB.jpg" alt="Slide 1" class="w-full h-56 md:h-96 object-cover">
-      </div>
-      <div class="swiper-slide">
-        <img src="tisa.JPG" alt="Slide 2" class="w-full h-56 md:h-96 object-cover">
-      </div>
-      <div class="swiper-slide">
-        <img src="guru.jpeg" alt="Slide 3" class="w-full h-56 md:h-96 object-cover">
-      </div>
+      <div class="swiper-slide"><img src="MB.jpg" alt="Slide 1" class="w-full h-56 md:h-96 object-cover"></div>
+      <div class="swiper-slide"><img src="tisa.JPG" alt="Slide 2" class="w-full h-56 md:h-96 object-cover"></div>
+      <div class="swiper-slide"><img src="guru.jpeg" alt="Slide 3" class="w-full h-56 md:h-96 object-cover"></div>
     </div>
-    <!-- Pagination & Navigasi -->
     <div class="swiper-pagination"></div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
 
-  <!-- Script untuk tanggal otomatis & toggle menu -->
   <script>
-    // Tanggal otomatis
+    // Tanggal
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('tanggal').textContent = new Date().toLocaleDateString('id-ID', options);
 
-    // Toggle menu mobile
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobileMenu");
+    const topbar = document.getElementById('topbar');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    menuBtn.addEventListener("click", () => {
-      if (mobileMenu.classList.contains("max-h-0")) {
-        mobileMenu.classList.remove("max-h-0");
-        mobileMenu.classList.add("max-h-[500px]");
-      } else {
-        mobileMenu.classList.remove("max-h-[500px]");
-        mobileMenu.classList.add("max-h-0");
-      }
+    // Toggle menu mobile + sembunyikan topbar saat terbuka
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.contains('max-h-0');
+      mobileMenu.classList.toggle('max-h-0', !open);
+      mobileMenu.classList.toggle('max-h-[600px]', open);
+      topbar.style.display = open ? 'none' : 'block';
+    });
+
+    // Toggle sub-menu mobile
+    document.querySelectorAll('.submenu-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pane = btn.nextElementSibling;
+        const icon = btn.querySelector('.icon');
+        const opened = pane.style.maxHeight && pane.style.maxHeight !== '0px';
+        pane.style.maxHeight = opened ? '0px' : (pane.scrollHeight + 'px');
+        icon.textContent = opened ? '+' : '−';
+      });
     });
   </script>
 
-  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
-    var swiper = new Swiper(".mySwiper", {
+    new Swiper('.mySwiper', {
       loop: true,
       autoplay: { delay: 3000 },
-      pagination: { el: ".swiper-pagination", clickable: true },
-      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     });
   </script>
-
 </body>
 </html>
