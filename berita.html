@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berita Kegiatan Sekolah</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      text-align: justify;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;  /* tampil 5 baris dulu */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .card p.expanded {
+      -webkit-line-clamp: unset; /* tampil penuh */
+      display: block;
+    }
+
+    .card a.read-more {
+      margin-top: 10px;
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+      align-self: flex-start;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .pagination a {
+      margin: 5px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      color: #333;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .pagination a.active {
+      background: #3498db;
+      color: white;
+      border-color: #3498db;
+    }
+
+    .pagination a:hover {
+      background: #2980b9;
+      color: white;
+    }
+
+    /* Responsif untuk HP */
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr; /* 1 kolom di HP */
+      }
+      .card img {
+        height: 160px;
+      }
+      .card h3 {
+        font-size: 16px;
+      }
+      .card p {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Berita Kegiatan Sekolah</h1>
+</header>
+
+<div class="container">
+  <div class="grid">
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="sertijabosis.JPG" alt="Upacara">
+      <div class="card-content">
+        <h3>Sertijab Pengurus OSIS SMKN 6 Tanjung Jabung Timur</h3>
+        <p>
+          Lambur II, 5 September 2025 – SMKN 6 Tanjung Jabung Timur melaksanakan kegiatan Pelantikan 
+          dan Serah Terima Jabatan (Sertijab) OSIS dari pengurus periode 2024/2025 kepada pengurus 
+          baru periode 2025/2026. Acara berlangsung di Lapangan sekolah dengan khidmat dan penuh 
+          semangat kebersamaan. Kepala SMKN 6 Tanjung Jabung Timur, Ibu Erna Sri Purwaningsih, S.E, 
+          dalam sambutannya menyampaikan apresiasi kepada pengurus OSIS periode sebelumnya 
+          atas dedikasi dan kerja keras yang telah diberikan dalam mendukung berbagai kegiatan sekolah. 
+          Beliau juga berharap kepengurusan baru dapat melanjutkan estafet organisasi dengan ide-ide 
+          kreatif dan inovatif. Prosesi pelantikan dipimpin langsung oleh Wakil Kepala Sekolah bidang 
+          Kesiswaan. Dalam kesempatan tersebut, pengurus OSIS periode 2024/2025 menyerahkan simbolis 
+          bendera OSIS kepada pengurus baru sebagai tanda resmi peralihan tanggung jawab. Ketua OSIS 
+          periode 2025/2026, Lisnawati dalam sambutannya menyatakan siap menjalankan 
+          amanah dan berkomitmen menjadikan OSIS sebagai wadah pengembangan potensi, kreativitas, 
+          serta membangun semangat kebersamaan di lingkungan sekolah.
+        </p>
+        <a class="read-more" onclick="toggleReadMore(this)">Baca Selengkapnya</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="Pramuka.JPG" alt="Pramuka">
+      <div class="card-content">
+        <h3>Pelantikan Kepengurusan Abalan SMKN 6 Tanjabtimur Masa Bakti 2025/2026</h3>
+        <p>
+          Lambur II, 29 Agustus 2025 – Gerakan Pramuka SMKN 6 Tanjung Jabung Timur kembali mengukir sejarah baru dengan terlaksananya kegiatan Pergantian Kepengurusan Pramuka untuk masa bakti 2025/2026. Kegiatan ini dilaksanakan di lapangan utama sekolah dengan penuh khidmat dan semangat kebersamaan.
+
+Acara diawali dengan upacara pembukaan yang dipimpin langsung oleh Kakak Pembina Pramuka, dilanjutkan dengan penyampaian laporan pertanggungjawaban oleh pengurus lama. Dalam kesempatan tersebut, pengurus lama menyampaikan rasa syukur serta pengalaman berharga selama masa kepengurusan yang telah membentuk karakter disiplin, tanggung jawab, serta jiwa kepemimpinan anggota.
+
+Setelah prosesi laporan, dilaksanakan serah terima jabatan (sertijab) dari Ketua Dewan Ambalan lama kepada Ketua Dewan Ambalan yang baru. Momen ini menjadi simbol peralihan estafet kepemimpinan serta tanggung jawab dalam menjaga nama baik dan eksistensi Gerakan Pramuka di SMKN 6 Tanjung Jabung Timur.
+
+Dalam sambutannya, Kepala SMKN 6 Tanjung Jabung Timur memberikan apresiasi kepada pengurus lama atas dedikasi dan kerja kerasnya, serta memberikan motivasi kepada pengurus baru untuk lebih aktif, kreatif, dan inovatif dalam mengembangkan kegiatan kepramukaan. Beliau juga menegaskan bahwa Pramuka bukan hanya wadah kegiatan ekstrakurikuler, tetapi juga sebagai sarana pembinaan karakter dan kepemimpinan siswa.
+
+Kegiatan ditutup dengan doa bersama dan persembahan yel-yel dari anggota Pramuka yang menambah semangat suasana. Seluruh peserta berharap, kepengurusan baru dapat membawa Pramuka SMKN 6 Tanjung Jabung Timur lebih maju, berprestasi, serta menjadi teladan bagi siswa lainnya.
+        </p>
+        <a class="read-more" onclick="toggleReadMore(this)">Baca Selengkapnya</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/400x250.png?text=Marching+Band" alt="#">
+      <div class="card-content">
+        <h3>#</h3>
+        <p>
+          waiting for the next moment
+        </p>
+        <a class="read-more" onclick="toggleReadMore(this)">Baca Selengkapnya</a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/400x250.png?text=Kegiatan+Olahraga" alt="#">
+      <div class="card-content">
+        <h3>#</h3>
+        <p>
+          waiting for the next moment
+        </p>
+        <a class="read-more" onclick="toggleReadMore(this)">Baca Selengkapnya</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <a href="#">&laquo;</a>
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">&raquo;</a>
+  </div>
+</div>
+
+<script>
+  function toggleReadMore(btn) {
+    const p = btn.previousElementSibling;
+    p.classList.toggle("expanded");
+    if (p.classList.contains("expanded")) {
+      btn.innerText = "Tutup";
+    } else {
+      btn.innerText = "Baca Selengkapnya";
+    }
+  }
+</script>
+
+</body>
+</html>
