@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Wali Kelas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 380px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: block;
+      color: #444;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4facfe;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #00c6fb;
+    }
+    .note {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login Wali Kelas</h2>
+    <form action="https://herukeswanto.com/administrasi_walikelas/login.php" method="post">
+      <label for="nama">Nama Wali Kelas (lengkap dengan gelar):</label>
+      <input type="text" id="nama" name="nama" placeholder="Contoh: Ir. Jokowidodo, M.Pd" required>
+
+      <label for="nip">NIP (Password):</label>
+      <input type="password" id="nip" name="nip" placeholder="Contoh: 194508171985011010" required>
+
+      <button type="submit">Login</button>
+    </form>
+    <div class="note">
+      Gunakan nama lengkap dengan gelar & NIP sebagai password
+    </div>
+  </div>
+</body>
+</html>

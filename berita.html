@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Berita Kegiatan Sekolah</title>
+  <!-- Font Awesome (ikon rumah) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,11 +16,31 @@
     }
 
     header {
-      background: #2c3e50;
-      color: white;
-      padding: 1rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 12px;
+      background: #004d99;
+      color: #fff;
+      padding: 14px 16px;
       text-align: center;
     }
+        .home-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #004d99;
+      text-decoration: none;
+      font-size: 18px;
+      border: none;
+      transition: background .18s, transform .12s;
+    }
+    .home-btn:hover { background: #e6eefc; transform: translateY(-2px); }
+
 
     .container {
       max-width: 1100px;
@@ -134,11 +157,19 @@
 <body>
 
 <header>
-  <h1>Berita Kegiatan Sekolah</h1>
-  <nav>
-    <a href="index.html" class="btn-home">🏠 Home</a>
-  </nav>
-</header>
+    <!-- kiri: tombol rumah -->
+    <a class="home-btn" href="index.html" title="Kembali ke Beranda" aria-label="Beranda">
+      <i class="fa-solid fa-house"></i>
+    </a>
+
+    <!-- tengah: judul + subjudul (benar2 center) -->
+    <div class="header-center" role="banner">
+      <h2>Kegiatan SMKN 6 Tanjung Jabung Timur</h2>
+    </div>
+
+    <!-- kanan: reserve space agar center tetap center -->
+    <div class="header-right" aria-hidden="true"></div>
+  </header>
 
 
 <div class="container">
