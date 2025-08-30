@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Konsentrasi Keahlian - SMKN 6</title>
+
+  <!-- Font Awesome (ikon rumah) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* reset & box sizing */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height:100%; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x: hidden; /* pastikan tidak ada scroll horizontal */
+    }
+
+    /* HEADER: grid 3 kolom -> left / center / right */
+    header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 12px;
+      background: #004d99;
+      color: #fff;
+      padding: 14px 16px;
+      text-align: center;
+    }
+
+    /* tombol rumah di pojok kiri */
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #004d99;
+      text-decoration: none;
+      font-size: 18px;
+      border: none;
+      transition: background .18s, transform .12s;
+    }
+    .home-btn:hover { background: #e6eefc; transform: translateY(-2px); }
+
+    /* container tengah header (judul + subjudul) */
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0 8px; /* beri ruang agar tidak mepet */
+    }
+    .header-center h1 {
+      font-size: 20px;
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: 0;
+      margin-bottom: 6px;
+    }
+    .header-center p {
+      font-size: 13px;
+      font-style: italic;
+      opacity: 0.95;
+      margin: 0;
+    }
+
+    /* right area (kosong untuk keseimbangan) */
+    .header-right { width:44px; height:44px; } /* reserve space agar center benar-benar center */
+
+    /* MAIN CONTENT */
+    .container {
+      max-width: 1200px;
+      margin: 26px auto;
+      padding: 0 16px; /* gunakan padding internal, box-sizing menghindari overflow */
+    }
+
+    .jurusan {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(13,30,60,0.06);
+      overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 28px rgba(13,30,60,0.10);
+    }
+
+    .card .thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;       /* menjaga rasio gambar; fallback compatible modern browser */
+      object-fit: cover;
+      display: block;
+      background: #eee;
+    }
+    /* fallback jika browser belum dukung aspect-ratio */
+    .card .thumb/img { max-width:100%; height:auto; display:block; }
+
+    .card .body {
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1;
+    }
+    .card h2 {
+      color: #036;
+      font-size: 18px;
+      margin: 0;
+      text-align: center;
+    }
+    .card p {
+      color: #444;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: justify;
+      margin: 0;
+    }
+
+    /* responsive tweaks */
+    @media (max-width: 900px) {
+      .header-center h1 { font-size: 18px; }
+      .header-center p  { font-size: 13px; }
+    }
+
+    @media (max-width: 520px) {
+      header {
+        grid-template-columns: 48px 1fr 48px; /* pastikan cukup ruang untuk home icon */
+        padding: 12px;
+      }
+      .home-btn { width:44px; height:44px; font-size:16px; }
+      .header-center h1 { font-size: 16px; }
+      .header-center p  { font-size: 12px; }
+      .container { margin: 18px auto; padding: 0 12px; }
+      .card .body { padding: 12px; }
+      .card h2 { font-size: 16px; }
+      .card p { font-size: 13px; }
+      .jurusan { gap: 16px; }
+      .card .thumb { aspect-ratio: 4 / 3; height: auto; }
+    }
+
+    /* very small devices: forcing single column to avoid overflow */
+    @media (max-width: 360px) {
+      .jurusan { grid-template-columns: 1fr; }
+      header { padding-left: 10px; padding-right: 10px; }
+      .header-center h1 { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- kiri: tombol rumah -->
+    <a class="home-btn" href="index.html" title="Kembali ke Beranda" aria-label="Beranda">
+      <i class="fa-solid fa-house"></i>
+    </a>
+
+    <!-- tengah: judul + subjudul (benar2 center) -->
+    <div class="header-center" role="banner">
+      <h1>Konsentrasi Keahlian SMKN 6 Tanjung Jabung Timur</h1>
+      <p>Pilihan jurusan unggulan sesuai minat dan bakat siswa</p>
+    </div>
+
+    <!-- kanan: reserve space agar center tetap center -->
+    <div class="header-right" aria-hidden="true"></div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="jurusan" aria-label="Daftar Jurusan">
+      <!-- DKV -->
+      <article class="card" aria-labelledby="dkv-title">
+        <img class="thumb" src="dkv_logo.jpg" alt="DKV - Desain Komunikasi Visual">
+        <div class="body">
+          <h2 id="dkv-title">Desain Komunikasi Visual (DKV)</h2>
+          <p>Jurusan yang mempelajari seni desain grafis, multimedia, fotografi, dan periklanan untuk menghasilkan karya visual yang kreatif dan inovatif.</p>
+        </div>
+      </article>
+
+      <!-- TSM -->
+      <article class="card" aria-labelledby="tsm-title">
+        <img class="thumb" src="tsm_logo.jpg" alt="TSM - Teknik Sepeda Motor">
+        <div class="body">
+          <h2 id="tsm-title">Teknik Sepeda Motor (TSM)</h2>
+          <p>Membekali siswa dengan keterampilan perawatan, perbaikan, dan modifikasi sepeda motor dengan teknologi terkini.</p>
+        </div>
+      </article>
+
+      <!-- AK -->
+      <article class="card" aria-labelledby="ak-title">
+        <img class="thumb" src="ak_logo.jpg" alt="AK - Akuntansi & Keuangan">
+        <div class="body">
+          <h2 id="ak-title">Akuntansi & Keuangan Lembaga (AK)</h2>
+          <p>Jurusan yang mempersiapkan siswa untuk menguasai akuntansi, manajemen keuangan, dan administrasi perusahaan.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+</body>
+</html>
